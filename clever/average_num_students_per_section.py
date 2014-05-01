@@ -33,7 +33,6 @@ class average_num_students:
 			if links_rel_second == "next":
 				self.rel_uri = json_response["links"][1]["uri"]
 			else:
-				print "z"
 				break
 
 if __name__ == "__main__":
