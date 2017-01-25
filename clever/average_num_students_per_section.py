@@ -28,11 +28,15 @@ class average_num_students:
 				self.num_of_students += len(data["data"]["students"])
 				self.num_of_sections += 1
 			
-			links_rel_second = json_response["links"][1]["rel"]
-			
-			if links_rel_second == "next":
-				self.rel_uri = json_response["links"][1]["uri"]
-			else:
+			links = json_response["links"]
+
+			self.rel_uri = None
+			for link in links:
+				if link["rel"] == "next":
+					self.rel_uri = link["uri"]
+					break
+
+			if self.rel_uri == None:
 				break
 
 if __name__ == "__main__":
